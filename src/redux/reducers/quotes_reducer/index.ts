@@ -1,10 +1,11 @@
-import CacheManager from "../../cache";
-import { PRODUCT_ACTIONS, STATE_ACTIONS } from "../actions/actionTypes/types";
+import CacheManager from "../../../cache";
+import { PRODUCT_ACTIONS, STATE_ACTIONS } from "../../actions/actionTypes/index.types";
+import { IQuotesReducer } from "./index.types";
 import _ from "lodash";
 
 const cache = new CacheManager();
 
-export const initialState = {
+export const initialState: IQuotesReducer = {
   quotes: []
 };
 

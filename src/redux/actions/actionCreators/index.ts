@@ -1,4 +1,4 @@
-import { PRODUCT_ACTIONS, STATE_ACTIONS } from "../actionTypes/types";
+import { PRODUCT_ACTIONS, STATE_ACTIONS } from "../actionTypes/index.types";
 
 export const addProduct = (product: any) => ({
   type: PRODUCT_ACTIONS.ADD_PRODUCT,
