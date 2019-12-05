@@ -48,15 +48,110 @@ Advisable extensions:
 
     .
     ├── App                     # Main application component wrapper up
-    ├── assets                  # Documentation files (alternatively `doc`)
-    ├── cache                   # Source files (alternatively `lib` or `app`)
-    ├── components              # Automated tests (alternatively `spec` or `tests`)
-    ├── containers              # Tools and utilities
-    ├── elements                # Tools and utilities
-    ├── hooks                   # Tools and utilities
-    ├── redux                   # Tools and utilities
-    ├── shared                  # Tools and utilities
-    └── README.md               # Tools and utilities
+    ├── assets                  # Icons, images, fonts
+    ├── cache                   # CacheManager class with cache-managing methods
+    ├── components              # *
+    ├── containers              # **
+    ├── elements                # ***
+    ├── hooks                   # Exported hooks managing app state
+    ├── redux                   # Basic redux configuration
+    └── shared                  # Constants, styles, utils
+
+    * Components – it is much more readable and maintainable to extinguish diversity of component types. Components in term of this folder structure can contain other low-level rendering components, they are more complex and they are performing a certain standalone function for the user or the app’s appearance ex. Modal, Drilldown.
+
+    ** Elements – in contrast to Components they are low-level elements used all over the application ex. Buttons, Inputs, List, Icons etc. 
+    Elements should have index file to import each element ex.
+
+    *** Containers – stat-managing components, on top of hierarchy consisting of few other smaller components. 
+    In this app’s case I would suggest introducing Containers per App View 
+    ex. MyCustomersView, MyCartsView, EditCartView.
+
+## File naming convention
+
+### **React Components**
+
+TitleCase.tsx
+
+### **Directories**
+
+camelCase
+
+### **Utils**
+
+camelCase.ts
+
+## Class & styles naming convention
+
+### **Sass files**
+
+Sass files should have the same name as the corresponding component
+
+### **Class names**
+
+BEM standard convention
+
+Using the BEM naming convention, **element** class names are derived by adding two underscores, followed by the element name
+
+```css
+.stick-man__head {}
+
+.stick-man__arms {}
+```
+
+Using the BEM naming convention, **modifier** class names are derived by adding two hyphens, followed by the element name
+
+```css
+.stick-man__head--small {}
+
+.stick-man__arms--long {}
+```
+
+Component base class should be unique to prevent mixing styles.
+
+## Code Splitting
+
+### **React.lazy()**
+
+It is a new function in react that allows load react components lazily through code splitting without help from any additional libraries. Lazy loading is the technique of rendering only-needed or critical user interface items first, then quietly unrolling the non-critical items later. Use it for better performance boost and split app into chunks after building phase.
+
+```jsx
+const tableWithLogic = React.lazy(() => import('./tableWithLogicComponent'));
+
+const myComponent = ({ visible }) => { visible ? <tableWithLogic /> : <p>it is invisible</p>};
+```
+
+It is also possible to ass a default name to chunks like this:
+
+```jsx
+() => import(/* webpackChunkName: 'tableWithLogicChunk' */ './tableWithLogicComponent')
+```
+
+### **React.memo()**
+
+When deciding to update DOM, React first renders your component, then compares the result with the previous render result. If the render results are different, React updates the DOM.
+
+Use it for better performance boost.
+
+```jsx
+export default React.memo(tableWithLogic);
+```
+
+## Debugging serviceWorker in developer mode
+
+[Clear explanation](https://codelabs.developers.google.com/codelabs/debugging-service-workers/#0)
+
+ServiceWorker doesn't work on localhost. It needs production environment. To debug and test sw functionality run:
+```yarn build```
+
+```yarn add global serve```
+
+```serve -s build```
+
+The last command shown above will serve your static site on the port 5000. Like many of serve’s internal settings, the port can be adjusted using the -l or --listen flags:
+
+```serve -s build -l 3000```
+
+```serve -h```
 
 ## Available Scripts
 

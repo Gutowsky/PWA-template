@@ -2,15 +2,14 @@ import React from "react";
 import { Provider } from "react-redux";
 import "./App.scss";
 import store from "../redux/store";
+import MainView from "../containers/mainView";
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
+      <MainView />
       <div className="App">
         <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -25,4 +24,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default React.memo(App);
