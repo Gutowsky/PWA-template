@@ -1,62 +1,4 @@
-# PG Offline (Progressive Web App)
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## General notes
-
-It is recommended to use Visual Studio Code with extensions to maintain code order using linter setting stored in tsconfig.json & /.vscode/settings.json.
-At start remember to use CRLF End of Line Sequence on the bottom bar of VSC.
-
-Advisable extensions:
-
-**[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)**
-
-**[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)**
-
-**[Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)**
-
-## Technology stack (use latest)
-
-**[React](https://reactjs.org/)**
-
-**[Redux](https://redux.js.org/)**
-
-**[Typescript](https://www.npmjs.com/package/typescript)**
-
-**[SCSS](https://sass-lang.com/guide)**
-
-**[LocalForage](https://www.npmjs.com/package/localforage)**
-
-**[Workbox](https://developers.google.com/web/tools/workbox)**
-
-## UI library
-
-  **[Material-UI]("https://material-ui.com/)** [React](https://reactjs.org/) components that implement [Google's Material Design](https://material.io/design/introduction/).
-
-### A typical top-level directory layout
-
-    .
-    ├── build                   # Compiled files (alternatively `dist`)
-    ├── public                  # HTML file to set page title and PWA files*
-    ├── src                     # Source files (alternatively `lib` or `app`)
-    ├── .eslintrc.json          # Linting definitions
-    └── README.md
-
- *manifest.json and custom service worker if needed, [link](https://alligator.io/js/intro-progressive-web-apps/).
-
-## src directory layout
-
-    .
-    ├── App                     # Main application component wrapper up
-    ├── assets                  # Documentation files (alternatively `doc`)
-    ├── cache                   # Source files (alternatively `lib` or `app`)
-    ├── components              # Automated tests (alternatively `spec` or `tests`)
-    ├── containers              # Tools and utilities
-    ├── elements                # Tools and utilities
-    ├── hooks                   # Tools and utilities
-    ├── redux                   # Tools and utilities
-    ├── shared                  # Tools and utilities
-    └── README.md               # Tools and utilities
 
 ## Available Scripts
 
@@ -69,6 +11,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
